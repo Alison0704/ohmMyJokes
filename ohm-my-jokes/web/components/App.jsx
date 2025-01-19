@@ -28,14 +28,11 @@ const App = () => { useEffect(() => { document.title = `${process.env.GADGET_APP
 const Layout = () => {
   const navigate = useNavigate();
   const [answer, setAnswer] = useState("Generated answer will appear here...");
+  const [input, setInput] = useState("");
 
   const generateJoke = async (topic) => {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer  ${process.env.REACT_APP_OPENAI_API_KEY}`,
-      },
       body: JSON.stringify({
         model: "gpt-4",
         messages: [
@@ -68,11 +65,8 @@ const Layout = () => {
               </p>
             </div>
             <div className="centered">
-            <input
-              type="text"
-              placeholder="Enter text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
+            <input type="text" placeholder="Enter text"              
+            onChange={(e) => setInput(e.target.value)}
             />   
             <button onClick={generateAnswer}>Submit</button>
           </div>

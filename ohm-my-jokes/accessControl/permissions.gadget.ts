@@ -17,5 +17,26 @@ export const permissions: GadgetPermissions = {
         },
       },
     },
+    user: {
+      storageKey: "304voAsZYVQl",
+      models: {
+        joke: {
+          read: true,
+          actions: {
+            create: true,
+            update: true,
+          },
+        },
+        session: {
+          read: true,
+        },
+        user: {
+          read: true,
+          actions: {
+            update: true,
+          },
+        },
+      },
+    },
   },
 };
