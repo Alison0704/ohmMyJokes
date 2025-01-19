@@ -7,7 +7,7 @@ export const schema: GadgetModel = {
   type: "gadget/model-schema/v1",
   storageKey: "flNxk-6IDpFu",
   fields: {
-    text: { type: "string", storageKey: "EeDyIHtyC62E" },
-    userInput: { type: "string", storageKey: "G5bQ-TrfNyoO" },
+    answer: { type: "string", storageKey: "EeDyIHtyC62E" },
+    input: { type: "string", storageKey: "G5bQ-TrfNyoO" },
   },
 };
