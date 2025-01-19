@@ -1,7 +1,6 @@
 .app {
   width: 100vw;
   height: calc(100vh - 80px);
-  background-image: url("https://assets.gadget.dev/assets/default-app-assets/default-background.svg");
   left: 0;
   top: 80px;
   position: fixed;
@@ -290,16 +289,10 @@ button {
   color: #fff !important;
   background:#000;
 }
-
+ /* ease for worker and employrr */
 .custom-button:hover{
   opacity:80%;
   transition: all 200ms;
 }
 
-.form-title{
-  font-size:1.5rem;
-  font-weight: 600;
-  margin-bottom:0;
-  padding-bottom:8;
-}
 
