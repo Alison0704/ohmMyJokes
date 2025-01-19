@@ -9,40 +9,11 @@ import type { GadgetPermissions } from "gadget-server";
 export const permissions: GadgetPermissions = {
   type: "gadget/permissions/v1",
   roles: {
-    "signed-in": {
-      storageKey: "signed-in",
-      default: {
-        read: true,
-        action: true,
-      },
+    OPENAI_API_KEY: {
+      storageKey: "unauthenticated",
       models: {
         joke: {
           read: true,
-          actions: {
-            create: true,
-            delete: true,
-            update: true,
-          },
-        },
-        user: {
-          read: {
-            filter: "accessControl/filters/user/tenant.gelly",
-          },
-        },
-      },
-    },
-    unauthenticated: {
-      storageKey: "unauthenticated",
-      models: {
-        user: {
-          actions: {
-            resetPassword: true,
-            sendResetPassword: true,
-            sendVerifyEmail: true,
-            signIn: true,
-            signUp: true,
-            verifyEmail: true,
-          },
         },
       },
     },

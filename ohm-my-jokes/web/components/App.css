@@ -127,11 +127,11 @@ button {
 }
 .theJoke{
   display: flex;
-  width: 80vw;
+  width: 60vw;
   justify-content: center;
   align-items: center;  
   gap: 16px;
-  height: 60vh;
+  height: 40vh;
   background-color: var(--main10);
 }
 

@@ -3,3 +3,4 @@
 import { Client } from "@gadget-client/ohm-my-jokes";
 
 export const api = new Client({ environment: window.gadgetConfig.environment });
+

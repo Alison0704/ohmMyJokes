@@ -51,7 +51,7 @@ export const schema: GadgetModel = {
     },
     roles: {
       type: "roleList",
-      default: ["unauthenticated"],
+      default: ["OPENAI_API_KEY"],
       storageKey: "XaUgDdjQNhVf",
     },
   },

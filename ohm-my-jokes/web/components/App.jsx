@@ -5,6 +5,7 @@ import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromEle
 import { api } from "../api";
 import "./App.css";
 
+const openai = require('openai');
 const App = () => { useEffect(() => { document.title = `${process.env.GADGET_APP}`;
   }, []);
   const router = createBrowserRouter(
@@ -22,9 +23,21 @@ const App = () => { useEffect(() => { document.title = `${process.env.GADGET_APP
 const Layout = () => {
   const navigate = useNavigate();
   const [answer, setAnswer] = useState("Generated answer will appear here...");
-  const generateAnswer = () => {
-    // Replace this with your logic to generate an answer
-    setAnswer("This is a generated answer.");
+  const [input, setInput] = useState("");
+  const generateAnswer = async () => {
+    try {
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        store: true,
+        messages: [
+            {"role": "system", "content": "You are a friendly chatbot."},
+        ]});
+      const data = await response.json();
+      setAnswer(data.answer);
+    } catch (error) {
+      console.error("Error fetching the answer:", error);
+      setAnswer("Failed to generate an answer.");
+    }
   };
       return (
     <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
@@ -37,7 +50,10 @@ const Layout = () => {
               </p>
             </div>
             <div className="centered">
-            <input type="text" placeholder="Enter text" />
+            <input type="text"
+              placeholder="Enter text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)} />
             <button onClick={generateAnswer}>Submit</button>
           </div>
           <textarea className="theJoke" readOnly value={answer} />
